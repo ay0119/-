@@ -1,0 +1,17 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import datetime
+import time
+
+maxT = int(raw_input())
+for outer_counter in xrange(maxT):
+    T = [0, 0]
+    for i in xrange(2):
+        my_input = raw_input()
+        my_input = [my_input[:-6], int(my_input[-5:])]
+        if my_input[1] == 0:
+            minute_shift = 0
+        else:
+            minute_shift, my_input[1] = my_input[1]/abs(my_input[1]), abs(my_input[1])
+            minute_shift = minute_shift * ( (my_input[1]//100)*60 + my_input[1]%100 )
+        T[i] = datetime.datetime.strptime(my_input[0],'%a %d %b %Y %H:%M:%S') - datetime.timedelta(minutes=minute_shift)
+    print abs(long((T[0]-T[1]).total_seconds()))
