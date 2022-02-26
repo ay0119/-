@@ -1,0 +1,17 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+n, m = map(int, raw_input().strip().split())
+
+numbers = map(int, raw_input().strip().split())
+
+A = set(map(int, raw_input().strip().split()))
+B = set(map(int, raw_input().strip().split()))
+
+happiness = 0
+for num in numbers:
+    if num in A:
+        happiness += 1
+    if num in B:
+        happiness -= 1
+
+print(happiness)
