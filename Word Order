@@ -1,0 +1,21 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+num=int(raw_input())
+
+unique_wordlist=[]
+unique_worddict={}
+
+c=0
+while c<num:
+    word=raw_input().rstrip('\r')
+    if word not in unique_worddict:
+        unique_worddict[word]=0
+        unique_wordlist.append(word)
+    unique_worddict[word]+=1
+    c+=1
+    
+tempstr=''
+for word in unique_wordlist:
+    tempstr+=str(unique_worddict[word])+' '
+    
+print len(unique_worddict)
+print tempstr
