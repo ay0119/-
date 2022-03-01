@@ -1,0 +1,21 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from operator import itemgetter, attrgetter, methodcaller
+
+S = raw_input()
+
+myDict = {}
+for c in S:
+    if c in myDict:
+        myDict[c] += 1
+    else:
+        myDict[c] = 1
+
+myList = []
+for v, k, in myDict.iteritems():
+    myList.append([v, -k])
+
+newList = sorted(myList, key=itemgetter(1,0))
+
+print newList[0][0], -newList[0][1]
+print newList[1][0], -newList[1][1]
+print newList[2][0], -newList[2][1]
