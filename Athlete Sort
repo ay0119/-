@@ -1,0 +1,7 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+n,m = map(int,raw_input().split())
+lst = []
+for i in range(n):
+    lst.append(map(int,raw_input().split()))
+k = int(raw_input())    
+print "\n".join(map(lambda x: " ".join(map(str, x)), sorted(lst, key = lambda x: x[k])))   
